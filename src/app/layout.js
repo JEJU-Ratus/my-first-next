@@ -24,7 +24,7 @@ export default async function RootLayout({ children }) {
   //     .then(result => setTopics(result));
   // }, []);
   // fetch(`https://...`, { next: { revalidate: false | 0 | number } })
-  const response = await fetch("http://localhost:9999/topics"); // 서버 컴포넌트에서의 fetch
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/topics`); // 서버 컴포넌트에서의 fetch
   const topics = await response.json(); // 서버 컴포넌트에서의 fetch
 
   console.log("공통 레이아웃 동작");

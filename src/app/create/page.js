@@ -21,7 +21,7 @@ export default function Create() {
             },
             body: JSON.stringify({ title, message }), // title, message가 객체형태로 바뀌어서 들어감.
           };
-          fetch("http://localhost:9999/topics", options)
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/topics`, options)
             .then(res => res.json())
             .then(result => {
               router.push(`/read/${result.id}`);
