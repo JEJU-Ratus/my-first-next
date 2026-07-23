@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import Navbar from "react-bootstrap/Navbar";
 import Link from "next/link";
 import Script from "next/script";
+import Controls from "./Controls";
 // import { useState, useEffect } from "react"; // 클라이언트 모듈
 
 // 서버 컴포넌트에서 메타데이터를 사용하기에 use client 같은걸로 클라이언트 컴포넌트로 인식하면 주석
@@ -54,17 +55,7 @@ export default async function RootLayout({ children }) {
         <main>
           {children}
           <hr />
-          <div className="d-flex gap-1">
-            <Link className="btn btn-primary" href="/create">
-              Create
-            </Link>
-            <Link className="btn btn-secondary" href="/update">
-              Update
-            </Link>
-            <Link className="btn btn-danger" href="/delete">
-              Delete
-            </Link>
-          </div>
+          <Controls />
         </main>
         <Script src="/main.js" strategy="beforeInteractive" />
       </body>
