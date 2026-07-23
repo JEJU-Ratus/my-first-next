@@ -22,7 +22,7 @@ export default async function RootLayout({ children }) {
   //     .then(res => res.json())
   //     .then(result => setTopics(result));
   // }, []);
-
+  // fetch(`https://...`, { next: { revalidate: false | 0 | number } })
   const response = await fetch("http://localhost:9999/topics"); // 서버 컴포넌트에서의 fetch
   const topics = await response.json(); // 서버 컴포넌트에서의 fetch
 
@@ -53,6 +53,7 @@ export default async function RootLayout({ children }) {
         </nav>
         <main>
           {children}
+          <hr />
           <div className="d-flex gap-1">
             <Link className="btn btn-primary" href="/create">
               Create
