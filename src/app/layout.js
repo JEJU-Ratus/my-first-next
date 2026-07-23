@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Link from "next/link";
 
 export const metadata = {
   title: "웹 언어",
@@ -10,31 +11,32 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  console.log("공통 레이아웃 동작");
   return (
-    <html lang="ko">
+    <html lang="ko" data-scroll-behavior="smooth">
       <body>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
           <div className="container-fluid d-flex justify-content-between">
             <h1>
-              <a className="navbar-brand" href="#">
-                Web
-              </a>
+              <Link className="navbar-brand" href="/">
+                Home
+              </Link>
             </h1>
             <ul className="nav mb-2 mb-lg-0 d-flex">
               <li className="nav-item">
-                <a className="nav-link" href="/read/1">
+                <Link className="nav-link" href="/read/1">
                   HTML
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/read/2">
+                <Link className="nav-link" href="/read/2">
                   CSS
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/read/3">
+                <Link className="nav-link" href="/read/3">
                   JavaScript
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -42,15 +44,15 @@ export default function RootLayout({ children }) {
         <main>
           {children}
           <div className="d-flex gap-1">
-            <a className="btn btn-primary" href="/create">
+            <Link className="btn btn-primary" href="/create">
               Create
-            </a>
-            <a className="btn btn-secondary" href="/update">
+            </Link>
+            <Link className="btn btn-secondary" href="/update">
               Update
-            </a>
-            <a className="btn btn-danger" href="/delete">
+            </Link>
+            <Link className="btn btn-danger" href="/delete">
               Delete
-            </a>
+            </Link>
           </div>
         </main>
       </body>
