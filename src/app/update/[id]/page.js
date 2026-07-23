@@ -1,4 +1,5 @@
 "use client";
+import { refresh } from "next/cache";
 import { useRouter, useParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
@@ -38,6 +39,7 @@ export default function Update() {
             .then(res => res.json())
             .then(result => {
               router.push(`/read/${result.id}`);
+              router.refresh();
             });
         }}
       >
